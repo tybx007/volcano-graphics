@@ -1,0 +1,79 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build final",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-NoProfile", "-ExecutionPolicy", "Bypass",
+                "-File", "${workspaceFolder}/build.ps1", "-Target", "final"
+            ],
+            "group": { "kind": "build", "isDefault": true },
+            "problemMatcher": ["$gcc"],
+            "presentation": { "reveal": "always", "clear": true }
+        },
+        {
+            "label": "build all stages",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-NoProfile", "-ExecutionPolicy", "Bypass",
+                "-File", "${workspaceFolder}/build.ps1", "-Target", "all"
+            ],
+            "problemMatcher": ["$gcc"],
+            "presentation": { "reveal": "always", "clear": true }
+        },
+        {
+            "label": "build stage 2",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-NoProfile", "-ExecutionPolicy", "Bypass",
+                "-File", "${workspaceFolder}/build.ps1", "-Target", "stage2"
+            ],
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "build stage 3",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-NoProfile", "-ExecutionPolicy", "Bypass",
+                "-File", "${workspaceFolder}/build.ps1", "-Target", "stage3"
+            ],
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "build stage 4",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-NoProfile", "-ExecutionPolicy", "Bypass",
+                "-File", "${workspaceFolder}/build.ps1", "-Target", "stage4"
+            ],
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "build and run",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-NoProfile", "-ExecutionPolicy", "Bypass",
+                "-File", "${workspaceFolder}/build.ps1", "-Target", "final", "-Run"
+            ],
+            "problemMatcher": ["$gcc"],
+            "presentation": { "reveal": "always" }
+        },
+        {
+            "label": "run final (no build)",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-NoProfile", "-Command",
+                "Start-Process -FilePath '${workspaceFolder}/volcanox.exe'"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}
